@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="C:\Users\APPLE MAC 2323\Dropbox\PC\Desktop\Bootstrap\CSS" />
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+        .calc-btn {
+            width: 50px;
+            height: 50px;
+            transition: all 0.2s ease-in-out;
+            border: 1px solid #ccc;
+        }
+
+        .calc-btn:hover {
+            background-color: blueviolet;
+            cursor: pointer;
+        }
+
+        .calc-btn:active {
+            background-color: yellowgreen;
+        }
+
+        #clear:hover {
+            background-color: #d32f2f;
+        }
+
+        .calc-display {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column-reverse;
+            width: 310px;
+            height: 100px;
+            background: #bcbcbc;
+            font-family: 'Share Tech Mono', monospace;
+            padding: 10px;
+            font-size: 24px;
+            /* adjust the font size as needed */
+        }
+
+        .inputstring {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+
+        .expressionstring {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+
+        .outputString {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+
+        .container mt-5 {
+            width: 310px;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .btn-result {
+            float: right;
+            margin-left: 4px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="C:\Users\APPLE MAC 2323\Dropbox\PC\Desktop\Bootstrap\CSS"></script>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="d-flex justify-content-center align-items-center p-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 calc-display">
+                                <div id="number_div" class="inputstring">0</div>
+                                <div id="expression" class="expressionstring"></div>
+                                <div id="value_div" class="outputString"></div>
+                            </div>
+                            <input type="hidden" id="savedExpression" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-center align-items-center p-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info calc-btn" data-event_key="%">
+                                %
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info calc-btn" data-event_key="CE">
+                                CE
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info calc-btn" id="clear" data-event_key="C">
+                                C
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info calc-btn" data-event_key="/">
+                                /
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-center align-items-center p-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="7">
+                                7
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="8">
+                                8
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="9">
+                                9
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="*">
+                                *
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-center align-items-center p-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="4">
+                                4
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="5">
+                                5
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="6">
+                                6
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="-">
+                                -
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-center align-items-center p-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="1">
+                                1
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="2">
+                                2
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="3">
+                                3
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="+">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-center align-items-center p-3">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="+/-">
+                                +/-
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key="0">
+                                0
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-info btn-block calc-btn" data-event_key=".">
+                                .
+                            </button>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <button type="button" class="btn btn-success btn-block calc-btn btn-result" value="="
+                                data-event_key="=">
+                                =
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        $(document).on("keypress", function (e) {
+            $('button[data-event_key="+e.key+"]').addClass("active");
+            if (
+                (e.keycode >= 48 && e.keyCode <= 57) ||
+                (e.keycode >= 96 && e.keyCode <= 105)
+            ) {
+                appendNumber(key);
+            }
+            else if (key == '') {
+                evaluateExpression()
+            }
+            else if (key == 'C') {
+                clearCalc()
+            }
+            console.log(key);
+        });
+        $(".calc-btn").on("click", function (e) {
+            var key = $(this).data("event_key");
+            if (
+                key != "%" &&
+                key != "CE" &&
+                key != "C" &&
+                key != "/" &&
+                key != "*" &&
+                key != "-" &&
+                key != "+" &&
+                key != "=" &&
+                key != "+/-" &&
+                key != "."
+            ) {
+                appendNumber(key);
+            }
+            else {
+                if (key == '+' || key == '-' || key == '/' || key == '*' || key == '%') {
+                    generateExpression(key);
+                }
+                else if (key == '=') {
+                    evaluateExpression()
+                }
+                else if (key == 'C') {
+                    clearCalc()
+                }
+                console.log(key)
+            }
+        });
+        function appendNumber(number) {
+            var existingNumber = $("#number_div").html();
+            var currentString = number;
+            var outputString = "";
+            if (
+                existingNumber != "" &&
+                existingNumber != undefined &&
+                existingNumber != null
+            ) {
+                if (existingNumber == 0) {
+                    outputString = number;
+                } else {
+                    outputString = existingNumber += currentString;
+                }
+            } else {
+                outputString = currentString;
+            }
+            $("#number_div").html(outputString);
+        }
+        function generateExpression(operator) {
+            var existingNumber = $("#number_div").html();
+            var currentOperator = operator;
+            var expression = '';
+            var savedExpression = $("#savedExpression").val();
+            if (savedExpression == '' || savedExpression == null || savedExpression == undefined) {
+                expression = parseInt(existingNumber) + operator;
+            } else {
+                expression = savedExpression + existingNumber + operator;
+            }
+            $("#number_div").html("")
+            $("#savedExpression").val(expression)
+            $("#expression").html(expression)
+        }
+        function evaluateExpression() {
+            var result = '';
+            var expression = $("#savedExpression").val();
+            var existingNumber = $("#number_div").html();
+            if (existingNumber != '' || existingNumber != null || existingNumber != undefined) {
+                expression = expression + parseInt(existingNumber);
+                $("#expression").html(expression)
+            }
+            result = eval(expression);
+            $("#number_div").val(result)
+            $("#value_div").html(result)
+        }
+        function clearCalc() {
+            $("#number_div").html("")
+            $("#savedExpression").val("")
+            $("#expression").html("")
+            $("#value_div").html("")
+        }
+    </script>
+</body>
+
+</html>
