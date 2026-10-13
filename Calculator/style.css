@@ -1,0 +1,67 @@
+.calc-btn {
+            width: 50px;
+            height: 50px;
+            transition: all 0.2s ease-in-out;
+            border: 1px solid #ccc;
+        }
+
+        .calc-btn:hover {
+            background-color: blueviolet;
+            cursor: pointer;
+        }
+
+        .calc-btn:active {
+            background-color: yellowgreen;
+        }
+
+        #clear:hover {
+            background-color: #d32f2f;
+        }
+
+        .calc-display {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column-reverse;
+            width: 310px;
+            height: 100px;
+            background: #bcbcbc;
+            font-family: 'Share Tech Mono', monospace;
+            padding: 10px;
+            font-size: 24px;
+            /* adjust the font size as needed */
+        }
+
+        .inputstring {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+
+        .expressionstring {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+
+        .outputString {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+
+        .container mt-5 {
+            width: 310px;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .btn-result {
+            float: right;
+            margin-left: 4px;
+            height: 60px;
+        }
