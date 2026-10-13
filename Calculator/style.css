@@ -19,38 +19,23 @@
         }
 
         .calc-display {
-            display: inline-flex;
+            display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column-reverse;
-            width: 310px;
-            height: 100px;
-            background: #bcbcbc;
+            flex-direction: column;
+            text-align: center;
             font-family: 'Share Tech Mono', monospace;
             padding: 10px;
             font-size: 24px;
-            /* adjust the font size as needed */
+            white-space: nowrap;
         }
 
-        .inputstring {
+        .inputstring, .outputString, .expressionstring {
             margin-top: 5px;
             height: 20px;
             display: block;
             font-size: 20px;
-        }
-
-        .expressionstring {
-            margin-top: 5px;
-            height: 20px;
-            display: block;
-            font-size: 20px;
-        }
-
-        .outputString {
-            margin-top: 5px;
-            height: 20px;
-            display: block;
-            font-size: 20px;
+            width: 100%;
         }
 
         .container mt-5 {
